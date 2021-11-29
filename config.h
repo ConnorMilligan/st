@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=16:antialias=true:autohint=true";
 static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 2;
 
@@ -113,40 +113,41 @@ float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
-};
 
+  /* 8 normal colors */
+  [0] = "#090300", /* black   */
+  [1] = "#db2d20", /* red     */
+  [2] = "#01a252", /* green   */
+  [3] = "#fded02", /* yellow  */
+  [4] = "#01a0e4", /* blue    */
+  [5] = "#a16a94", /* magenta */
+  [6] = "#b5e4f4", /* cyan    */
+  [7] = "#a5a2a2", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#5c5855", /* black   */
+  [9]  = "#db2d20", /* red     */
+  [10] = "#01a252", /* green   */
+  [11] = "#fded02", /* yellow  */
+  [12] = "#01a0e4", /* blue    */
+  [13] = "#a16a94", /* magenta */
+  [14] = "#b5e4f4", /* cyan    */
+  [15] = "#f7f7f7", /* white   */
+
+  /* special colors */
+  [256] = "#090300", /* background */
+  [257] = "#a5a2a2", /* foreground */
+};
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
-unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
 unsigned int defaultrcs = 257;
-unsigned int background = 258;
+unsigned int background = 256;
 
 /*
  * Default shape of cursor
@@ -555,3 +556,4 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
